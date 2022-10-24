@@ -56,32 +56,21 @@ class ViewController: UIViewController {
     
     @objc func happySwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("happy")
-        print(userOutput)
     }
     @objc func loveSwipe(gesture: UITapGestureRecognizer) {
-//        userOutput = userOutput.dropLast(1)
         userOutput.append("love")
-        print(userOutput)
     }
     @objc func upSwipe(gesture: UITapGestureRecognizer) {
-//        userOutput = userOutput.dropLast(1)
         userOutput.append("thumbs up")
-        print(userOutput)
     }
     @objc func sadSwipe(gesture: UITapGestureRecognizer) {
-//        userOutput = userOutput.dropLast(1)
         userOutput.append("thumbs down")
-        print(userOutput)
     }
     @objc func laughSwipe(gesture: UITapGestureRecognizer) {
-//        userOutput = userOutput.dropLast(1)
         userOutput.append("laugh")
-        print(userOutput)
     }
     @objc func madSwipe(gesture: UITapGestureRecognizer) {
-//        userOutput = userOutput.dropLast(1)
         userOutput.append("mad")
-        print(userOutput)
     }
 
     private let button2: UIButton = {
@@ -103,17 +92,7 @@ class ViewController: UIViewController {
                                 height: 55
                 )
     }
-    
-//    Screen Colors for every emotions
-    let colors: [UIColor] = [
-        .systemBlue,
-        .systemRed,
-        .systemGreen,
-        .systemMint,
-        .systemYellow,
-        .systemPurple
-    ]
-    
+
 //    Trial 2 with different vibrations each representing a different Emotion
         func set2(numTrials: Int) -> Void {
             let seconds = 4.0
@@ -159,5 +138,7 @@ class ViewController: UIViewController {
                 Thread.sleep(forTimeInterval: seconds)
                 val += 1
             }
+            print(userOutput)
+            userOutput = []
         }
 }
