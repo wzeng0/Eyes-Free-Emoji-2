@@ -97,7 +97,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        button2.frame = CGRect(x: 200,
+        button2.frame = CGRect(x: view.frame.size.width / 3,
                                 y: view.frame.size.height - 150 - view.safeAreaInsets.bottom,
                                 width: view.frame.size.width - 260,
                                 height: 55
