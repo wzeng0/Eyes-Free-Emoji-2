@@ -63,9 +63,7 @@ class ViewController: UIViewController {
         userOutput.append("thumbs up")
     }
     @objc func sadSwipe(gesture: UITapGestureRecognizer) {
-//        userOutput = userOutput.dropLast(1)
         userOutput.append("sad")
-        print(userOutput)
     }
     @objc func laughSwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("laugh")
