@@ -42,7 +42,6 @@ class ViewController: UIViewController {
         madGesture.numberOfTouchesRequired = 2
         
         
-        
         gestureView.addGestureRecognizer(rightGesture)
         gestureView.addGestureRecognizer(leftGesture)
         gestureView.addGestureRecognizer(upGesture)
@@ -70,7 +69,7 @@ class ViewController: UIViewController {
     }
     @objc func sadSwipe(gesture: UITapGestureRecognizer) {
 //        userOutput = userOutput.dropLast(1)
-        userOutput.append("thumbs down")
+        userOutput.append("sad")
         print(userOutput)
     }
     @objc func laughSwipe(gesture: UITapGestureRecognizer) {
