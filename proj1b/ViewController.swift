@@ -22,31 +22,31 @@ class ViewController: UIViewController {
         gestureView.isUserInteractionEnabled = true
         view.addSubview(gestureView)
         
-        let rightGesture = UISwipeGestureRecognizer(target: self, action: #selector(happySwipe(gesture:)))
+        let rightGesture = UISwipeGestureRecognizer(target: self, action: #selector(thumbsSwipe(gesture:)))
         rightGesture.direction = .right
         rightGesture.numberOfTouchesRequired = 1
-        let leftGesture = UISwipeGestureRecognizer(target: self, action: #selector(loveSwipe(gesture:)))
-        leftGesture.direction = .left
-        leftGesture.numberOfTouchesRequired = 1
-        let upGesture = UISwipeGestureRecognizer(target: self, action: #selector(upSwipe(gesture:)))
+        let loveGesture = UISwipeGestureRecognizer(target: self, action: #selector(loveSwipe(gesture:)))
+        loveGesture.direction = .right
+        loveGesture.numberOfTouchesRequired = 2
+        let upGesture = UISwipeGestureRecognizer(target: self, action: #selector(happySwipe(gesture:)))
         upGesture.direction = .up
         upGesture.numberOfTouchesRequired = 1
-        let downGesture = UISwipeGestureRecognizer(target: self, action: #selector(sadSwipe(gesture:)))
-        downGesture.direction = .down
-        downGesture.numberOfTouchesRequired = 1
         let laughGesture = UISwipeGestureRecognizer(target: self, action: #selector(laughSwipe(gesture:)))
         laughGesture.direction = .up
         laughGesture.numberOfTouchesRequired = 2
+        let downGesture = UISwipeGestureRecognizer(target: self, action: #selector(sadSwipe(gesture:)))
+        downGesture.direction = .down
+        downGesture.numberOfTouchesRequired = 1
         let madGesture = UISwipeGestureRecognizer(target: self, action: #selector(madSwipe(gesture:)))
         madGesture.direction = .down
         madGesture.numberOfTouchesRequired = 2
         
         
         gestureView.addGestureRecognizer(rightGesture)
-        gestureView.addGestureRecognizer(leftGesture)
+        gestureView.addGestureRecognizer(loveGesture)
         gestureView.addGestureRecognizer(upGesture)
-        gestureView.addGestureRecognizer(downGesture)
         gestureView.addGestureRecognizer(laughGesture)
+        gestureView.addGestureRecognizer(downGesture)
         gestureView.addGestureRecognizer(madGesture)
         
         view.addSubview(button2)
@@ -55,21 +55,27 @@ class ViewController: UIViewController {
     
     @objc func happySwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("happy")
+        print(userOutput)
     }
     @objc func loveSwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("love")
+        print(userOutput)
     }
-    @objc func upSwipe(gesture: UITapGestureRecognizer) {
+    @objc func thumbsSwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("thumbs up")
+        print(userOutput)
     }
     @objc func sadSwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("sad")
+        print(userOutput)
     }
     @objc func laughSwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("laugh")
+        print(userOutput)
     }
     @objc func madSwipe(gesture: UITapGestureRecognizer) {
         userOutput.append("mad")
+        print(userOutput)
     }
 
     private let button2: UIButton = {
@@ -99,7 +105,7 @@ class ViewController: UIViewController {
             //var frequency = [4095, 1311, 1050, 1519, 1102, 1521]
             var frequency = [1, 2, 3, 4, 5, 6]
             
-            while (val < numTrials) {
+            while (val < 1) {
                 let randomName = frequency.randomElement()!
                 if randomName == 1 {
                     AudioServicesPlaySystemSound(SystemSoundID(1311))
@@ -137,7 +143,5 @@ class ViewController: UIViewController {
                 Thread.sleep(forTimeInterval: seconds)
                 val += 1
             }
-            print(userOutput)
-            userOutput = []
         }
 }
