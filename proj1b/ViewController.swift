@@ -118,14 +118,38 @@ class ViewController: UIViewController {
         func set2(numTrials: Int) -> Void {
             let seconds = 4.0
             var val = 0
-            var frequency = [4095, 1304, 1321, 1519, 1350, 1521]
+            //var frequency = [4095, 1311, 1050, 1519, 1102, 1521]
+            var frequency = [1, 2, 3, 4, 5, 6]
             
-            // 4095 = normal, 1521 = 3 little booms, 1321 = two
-            // need to change 1350, also 1519 is very close to 1521
-
             while (val < numTrials) {
                 let randomName = frequency.randomElement()!
-                AudioServicesPlaySystemSound(SystemSoundID(randomName))
+                if randomName == 1 {
+                    AudioServicesPlaySystemSound(SystemSoundID(1311))
+                }
+                
+                if randomName == 2 {
+                    AudioServicesPlaySystemSound(SystemSoundID(1311))
+                    Thread.sleep(forTimeInterval: 1)
+                    AudioServicesPlaySystemSound(SystemSoundID(1311))
+                }
+                if randomName == 3 {
+                    AudioServicesPlaySystemSound(SystemSoundID(1050))
+                }
+                
+                if randomName == 4 {
+                    AudioServicesPlaySystemSound(SystemSoundID(1050))
+                    Thread.sleep(forTimeInterval: 1)
+                    AudioServicesPlaySystemSound(SystemSoundID(1050))
+                }
+                if randomName == 5 {
+                    AudioServicesPlaySystemSound(SystemSoundID(1521))
+                }
+                
+                if randomName == 6 {
+                    AudioServicesPlaySystemSound(SystemSoundID(1521))
+                    Thread.sleep(forTimeInterval: 1)
+                    AudioServicesPlaySystemSound(SystemSoundID(1521))
+                }
                 
                 if let index = frequency.firstIndex(of: randomName) {
                     frequency.remove(at: index)
